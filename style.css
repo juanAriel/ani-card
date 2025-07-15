@@ -186,3 +186,131 @@ footer {
   line-height: 1.4;
   padding: 0 20px; /* Agrega algo de espacio alrededor del texto */
 }
+
+.heart-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+  color: white;
+  overflow: hidden; 
+}
+
+.heart {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  background: red;
+  margin: 0 auto;
+  transform: rotate(-45deg);
+  animation: heartbeat 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -50px;
+  left: 0;
+}
+
+.heart::after {
+  left: 50px;
+  top: 0;
+}
+
+.message {
+  font-size: 2em;
+  color: black;
+  margin-top: 100px;
+  animation: fadeText 3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.2);
+  }
+}
+
+@keyframes fadeText {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-heart {
+  position: absolute;
+  width: 20px;
+  height: 18px;
+  background: red;
+  transform: rotate(-45deg);
+  animation: floatUp 1.5s ease-out forwards;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.floating-heart::before,
+.floating-heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 18px;
+  background: red;
+  border-radius: 50%;
+}
+
+.floating-heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.floating-heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .galeria-lista {
+    grid-template-columns: 1fr; /* Solo una columna en pantallas pequeñas */
+  }
+}
+
